@@ -1,43 +1,70 @@
-import { useState } from "react";
-import data from "../json/data.json";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+
 import minus from "../../public/assets/images/icon-decrement-quantity.svg";
 import plus from "../../public/assets/images/icon-increment-quantity.svg";
 
-interface cartItem {
-    id :  string;
-    name: string;
-    count: number;
-    price: number;
-    isDelete: boolean;
+
+interface Image {
+    thumbnail: string;
+    mobile: string;
+    tablet: string;
+    desktop: string;
+}
+
+interface Dessert {
+    id : string;
+    image: Image;        
+    name: string;       
+    category: string;    
+    price: number;       
+}
+
+interface Cart {
+    id: string;
+    name : string;
+    price : number;
+    count : number;
 }
 
 export const DessertList = () =>{
-    const [ cart, setCart ] = useState<cartItem[]>([]);
-    const [ totalPrice , setTotalPrice ] = useState<number>(0);
-    const [ count , setCount ] = useState<number>(0);
-    //장바구니 추가
-    const addCart = (selectItem : cartItem) => {
-        setCart((prevCart) => {
-            const newCart = [...prevCart, selectItem ];
-            return newCart;
-        });
-    }
+    const data = useSelector((state:any) => state.productReducer);
+    const [ cart, setCart ] = useState<Cart[]>([]);
+    const [rowdata , setData ] = useState<Dessert[]>([]);
 
-    const calculateTotalPrice = (cartItem : cartItem[]) => {
-        const total = cartItem.reduce((sum, cartItem) => sum+ (cartItem.price* cartItem.count), 0);
-        setTotalPrice(total);
-    }
-    const increaseQuantity = (item?: cartItem) => {
-   
-    }
+    useEffect(()=> {
+        setData(data);
+      }, [data]);
+
+    //장바구니 추가
+    const addCart = (selectItem : Dessert) => {
+        setCart((currentCart : any) => {
+            const checkCart = currentCart.find((item: { id: string; }) => item.id === selectItem.id);
+            if(checkCart){
+                return currentCart.map((item: { id: string; count: number; }) => 
+                    item.id === selectItem.id ? { ...item, count: item.count + 1 } : item
+                );
+            } else {
+                return [...currentCart, { ...selectItem, count : 1 }]; 
+            }
+        });
+        console.log(cart);
+    };
+
+
+ 
+
+    // useEffect(() => {
+    //     const total = cart.reduce((sum, item) => sum+ (item.price* item.count), 0);
+    //     setTotalPrice(total);
+    // }, [cart]);
+    
     return (
         <div className="column is-four-fifths">
             <h1>Dessers</h1>
             <div className="columns is-multiline">
                 {
-                    data.map((item: any, index) => {
-                  
-
+                    rowdata.map((item: any, index : number ) => {
                         return (
                             <div className="column is-one-third " key={index}>
                                 <figure className="image">
@@ -49,9 +76,9 @@ export const DessertList = () =>{
                                     </button>
 
                                     <div>   
-                                    <button className="button" onClick={() => increaseQuantity(item.id)}> <img src={minus} /></button>
-                                    <div>{count}</div>
-                                    <button className="button"> <img src={plus} /></button>
+                                        <button className="button" > <img src={minus} /></button>
+                                        <div>{}</div>
+                                        <button className="button"> <img src={plus} /></button>
                                     </div>
                                  
                                 </div>

@@ -1,4 +1,6 @@
 import React , {  useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+
 import close from "../../public/assets/images/icon-remove-item.svg";
 
 interface cartItem {
@@ -9,54 +11,41 @@ interface cartItem {
     isDelete: boolean;
 }
 
-const data = [
-    {
-     
-       "name": "Waffle with Berries",
-       "category": "Waffle",
-       "count" : 1,
-       "price": 6.50
-    },
-    {
-        "name": "Vanilla Bean Crème Brûlée",
-        "category": "Crème Brûlée",
-        "count" : 2,
-        "price": 7.00
-     },
-     {
-        "name": "Macaron Mix of Five",
-        "category": "Macaron",
-        "count" : 4,
-        "price": 8.00
-     }
-];
+
 
 
 export const Cart = () =>{
+    const [ cart, setCart ] = useState<cartItem[]>([]);
+
+    const deleteCart = (id : string) => {
+        setCart((cart) =>  cart.filter(item => item.id !== id));
+
+    }
 
     return (
         <div className="column">
             <div>Your Cart()</div>
                 {
-                    data.map((item , index) => {
-                        return (
-                        <div key={index} className="columns">
-                            <div className="column">
-                                <div>{item.name}</div>
-                                <div className="columns">
-                                    <div className="column">{item.count}</div>
-                                    <div className="column">${item.price.toFixed(2)}</div>
-                                    <div className="column">${(item.count*item.price).toFixed(2)}</div>
-                                </div>
-                            </div>
-                            <div className="column">
-                                <button className="button is-rounded">
-                                    <img src={close} />
-                                </button>
-                            </div>
-                        </div>
-                        )
-                    })
+                  
+                    // data.map((item , index) => {
+                    //     return (
+                    //     <div key={index} className="columns">
+                    //         <div className="column">
+                    //             <div>{item.name}</div>
+                    //             <div className="columns">
+                    //                 <div className="column">{item.count}</div>
+                    //                 <div className="column">${item.price.toFixed(2)}</div>
+                    //                 <div className="column">${(item.count*item.price).toFixed(2)}</div>
+                    //             </div>
+                    //         </div>
+                    //         <div className="column">
+                    //             <button className="button is-rounded" onClick={() => deleteCart(item.id) }>
+                    //                 <img src={close} />
+                    //             </button>
+                    //         </div>
+                    //     </div>
+                    //     )
+                    // })
                 }
                 <div>
                     <div>

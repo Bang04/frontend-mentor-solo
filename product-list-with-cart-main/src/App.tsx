@@ -1,7 +1,6 @@
-
+import './App.css';
 import { DessertList }  from "./components/DessertList";
 import { Cart } from "./components/Cart";
-import './App.css';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
           <Cart />
         </div>
     </div>
-   
   );
 }
 

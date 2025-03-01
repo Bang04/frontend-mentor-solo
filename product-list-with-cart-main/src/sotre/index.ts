@@ -1,56 +1,59 @@
 import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 import rawData from "../json/data.json";
+import { Cart } from "../components/Cart";
 
-export const menuObject = {
-    home: "movies or TV series",
-    movie: "movies",
-    tvseries: "TV series",
-    bookmark: "Bookmarked shows"
-} as any;
-
-interface Thumbnail {
-    trending: {
-      small: string;
-      large: string;
-    };
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
+interface Image {
+    thumbnail: string;
+    mobile: string;
+    tablet: string;
+    desktop: string;
 }
 
-interface item {
-    id :  string;
-    title: string;
-    thumbnail: Thumbnail;
-    year: number;
-    category: string;
-    rating: string;
-    isBookmarked: boolean;
-    isTrending: boolean;
+interface Dessert {
+    id : string;
+    image: Image;        
+    name: string;       
+    category: string;    
+    price: number;       
 }
 
-const itemsReducer = createSlice({
-    name: 'itemsReducer',
+interface CartItem {
+    id: string;
+    name : string;
+    price : number;
+    count : number;
+}
+
+interface CartState {
+    items: CartItem[];
+}
+
+const initialState: CartState = {
+    items: [],
+};
+
+const productReducer = createSlice({
+    name: 'productReducer',
     initialState: rawData.map((item:any, index:number) => ({...item, id: index})),
     reducers: {
-        toggle : (state, action:PayloadAction<item>) => {
-            const selectedItem = state.find((item)=>item.id==action.payload.id);
-            selectedItem.isBookmarked = !selectedItem.isBookmarked;
-        },
+        // add: (state, action: PayloadAction<Dessert>) => {
+        //     return state;
+        // },
+        // remove: (state, action: PayloadAction<string>) => {
+          
+        // }
     },
 });
 
-const searchReducer = createSlice({
-    name: "searchReducer",
-    initialState: "",
+const cartReducer = createSlice({
+    name: "cartReducer",
+    initialState: initialState,
     reducers: {
-        getWords: (state: string) => {
+        add: (state, action: PayloadAction<Dessert>) => {
             return state;
         },
-        setWords: (_state: string, action: PayloadAction<string>) => {
-            return action.payload;      
+        remove: (state, action: PayloadAction<string>) => {
+          
         }
     }
 });
@@ -67,14 +70,12 @@ const menuReducer = createSlice({
 
 const store = configureStore({
     reducer: {
-        searchReducer: searchReducer.reducer,
-        itemsReducer : itemsReducer.reducer,
+        productReducer : productReducer.reducer,
         menuReducer: menuReducer.reducer
     }
 });
 
-export const { toggle } = itemsReducer.actions;
-export const { getWords, setWords } = searchReducer.actions;
-export const { curr } = menuReducer.actions;
+export const {  } = productReducer.actions;
+export const { add,remove } = cartReducer.actions;
 
 export default store;
