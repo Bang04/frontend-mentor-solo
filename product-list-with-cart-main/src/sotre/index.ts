@@ -1,6 +1,5 @@
 import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 import rawData from "../json/data.json";
-import { Cart } from "../components/Cart";
 
 interface Image {
     thumbnail: string;
@@ -34,14 +33,11 @@ const initialState: CartState = {
 
 const productReducer = createSlice({
     name: 'productReducer',
-    initialState: rawData.map((item:any, index:number) => ({...item, id: index})),
+    initialState: rawData.map((item:any, index:number) => ({
+        ...item,
+     id: index.toString(),
+    })),
     reducers: {
-        // add: (state, action: PayloadAction<Dessert>) => {
-        //     return state;
-        // },
-        // remove: (state, action: PayloadAction<string>) => {
-          
-        // }
     },
 });
 
@@ -49,33 +45,30 @@ const cartReducer = createSlice({
     name: "cartReducer",
     initialState: initialState,
     reducers: {
-        add: (state, action: PayloadAction<Dessert>) => {
-            return state;
+        add: (state, action: PayloadAction<CartItem>) => {
+            const existingItem = state.items.find((item : CartItem) => item.id === action.payload.id); 
+            if(existingItem){
+                existingItem.count +=1;
+             
+            } else {
+                state.items.push({...action.payload, count : 1});
+            }
         },
         remove: (state, action: PayloadAction<string>) => {
-          
+            state.items = state.items.filter(item => item.id !== action.payload.toString());
         }
     }
 });
 
-const menuReducer = createSlice({
-    name: "menuReducer",
-    initialState: "home",
-    reducers: {
-        curr: (_state:any, _action: PayloadAction<string>) => {
-            return _action.payload;
-        }
-    }
-});
 
 const store = configureStore({
     reducer: {
         productReducer : productReducer.reducer,
-        menuReducer: menuReducer.reducer
+        cartReducer: cartReducer.reducer
     }
 });
 
 export const {  } = productReducer.actions;
-export const { add,remove } = cartReducer.actions;
+export const { add , remove } = cartReducer.actions;
 
 export default store;

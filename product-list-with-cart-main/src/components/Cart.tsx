@@ -1,5 +1,6 @@
-import React , {  useState } from "react";
+
 import { useDispatch, useSelector } from 'react-redux';
+import { remove } from '../sotre/index';
 
 import close from "../../public/assets/images/icon-remove-item.svg";
 
@@ -12,40 +13,43 @@ interface cartItem {
 }
 
 
-
-
 export const Cart = () =>{
-    const [ cart, setCart ] = useState<cartItem[]>([]);
+
+    const cart = useSelector((state: any) => state.cartReducer.items);
+    const dispatch = useDispatch();
+
 
     const deleteCart = (id : string) => {
-        setCart((cart) =>  cart.filter(item => item.id !== id));
+        dispatch(remove(id));
+       
 
     }
+    
 
     return (
         <div className="column">
             <div>Your Cart()</div>
                 {
                   
-                    // data.map((item , index) => {
-                    //     return (
-                    //     <div key={index} className="columns">
-                    //         <div className="column">
-                    //             <div>{item.name}</div>
-                    //             <div className="columns">
-                    //                 <div className="column">{item.count}</div>
-                    //                 <div className="column">${item.price.toFixed(2)}</div>
-                    //                 <div className="column">${(item.count*item.price).toFixed(2)}</div>
-                    //             </div>
-                    //         </div>
-                    //         <div className="column">
-                    //             <button className="button is-rounded" onClick={() => deleteCart(item.id) }>
-                    //                 <img src={close} />
-                    //             </button>
-                    //         </div>
-                    //     </div>
-                    //     )
-                    // })
+                    cart.map((item: any , index: number) => {
+                        return (
+                        <div key={index} className="columns">
+                            <div className="column">
+                                <div>{item.name}</div>
+                                <div className="columns">
+                                    <div className="column">{item.count}</div>
+                                    <div className="column">${item.price.toFixed(2)}</div>
+                                    <div className="column">${(item.count*item.price).toFixed(2)}</div>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <button className="button is-rounded" onClick={() => deleteCart(item.id) }>
+                                    <img src={close} />
+                                </button>
+                            </div>
+                        </div>
+                        )
+                    })
                 }
                 <div>
                     <div>

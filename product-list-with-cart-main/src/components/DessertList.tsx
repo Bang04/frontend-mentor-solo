@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { add } from '../sotre/index';
 
 import minus from "../../public/assets/images/icon-decrement-quantity.svg";
 import plus from "../../public/assets/images/icon-increment-quantity.svg";
 
+//import DessertList from "./DessertList.css";
 
 interface Image {
     thumbnail: string;
@@ -20,7 +22,7 @@ interface Dessert {
     price: number;       
 }
 
-interface Cart {
+interface CartItem {
     id: string;
     name : string;
     price : number;
@@ -28,30 +30,23 @@ interface Cart {
 }
 
 export const DessertList = () =>{
-    const data = useSelector((state:any) => state.productReducer);
-    const [ cart, setCart ] = useState<Cart[]>([]);
-    const [rowdata , setData ] = useState<Dessert[]>([]);
 
-    useEffect(()=> {
-        setData(data);
-      }, [data]);
+    const dispatch = useDispatch();
+
+    const data = useSelector((state:any) => state.productReducer);
+    const cart = useSelector((state:any)=> state.cartReducer);
+    
 
     //장바구니 추가
-    const addCart = (selectItem : Dessert) => {
-        setCart((currentCart : any) => {
-            const checkCart = currentCart.find((item: { id: string; }) => item.id === selectItem.id);
-            if(checkCart){
-                return currentCart.map((item: { id: string; count: number; }) => 
-                    item.id === selectItem.id ? { ...item, count: item.count + 1 } : item
-                );
-            } else {
-                return [...currentCart, { ...selectItem, count : 1 }]; 
-            }
-        });
-        console.log(cart);
+    //현재 선택한 아이템
+    const addCart = (item : CartItem) => {
+        dispatch(add(item));
     };
 
 
+    useEffect(() => {
+        console.log(cart);
+    }, [cart]);
  
 
     // useEffect(() => {
@@ -64,7 +59,7 @@ export const DessertList = () =>{
             <h1>Dessers</h1>
             <div className="columns is-multiline">
                 {
-                    rowdata.map((item: any, index : number ) => {
+                    data.map((item: any, index : number ) => {
                         return (
                             <div className="column is-one-third " key={index}>
                                 <figure className="image">
