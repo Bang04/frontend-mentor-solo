@@ -35,20 +35,33 @@ export const DessertList = () =>{
 
     const data = useSelector((state:any) => state.productReducer);
     const cart = useSelector((state:any)=> state.cartReducer);
-    
+    const [quantity, setQuantity ] = useState<number[]>(Array(data.length).fill(1)); //1 초기 수량 설정 
+
+
 
     //장바구니 추가
     //현재 선택한 아이템
-    const addCart = (item : CartItem) => {
-        dispatch(add(item));
+    const addCart = (item : CartItem, index: number) => {
+        dispatch(add({...item, count: quantity[index],}));
     };
 
 
     useEffect(() => {
-        console.log(cart);
+       // console.log(cart);
     }, [cart]);
  
-
+    const increaseQuantity = (index : number) => {
+        const newQuantity = [...quantity];
+        newQuantity[index] += 1;
+        setQuantity(newQuantity);
+    }
+    const decreaseQuantity = (index : number) => {
+        const newQuantity = [...quantity];
+       if(newQuantity[index] > 1){
+            newQuantity[index] -=1;
+       }
+       setQuantity(newQuantity);
+    }
     // useEffect(() => {
     //     const total = cart.reduce((sum, item) => sum+ (item.price* item.count), 0);
     //     setTotalPrice(total);
@@ -66,14 +79,14 @@ export const DessertList = () =>{
                                     <img className="image" src={item.image.desktop} />
                                 </figure>
                                 <div>
-                                    <button className="button is-danger is-rounded is-outlined"  onClick={() => addCart(item)}>
+                                    <button className="button is-danger is-rounded is-outlined"  onClick={() => addCart(item, index)}>
                                         <span>Add to Cart</span>
                                     </button>
 
                                     <div>   
-                                        <button className="button" > <img src={minus} /></button>
-                                        <div>{}</div>
-                                        <button className="button"> <img src={plus} /></button>
+                                        <button className="button" onClick={() => decreaseQuantity(index)}> <img src={minus} /></button>
+                                        <div>{quantity[index]}</div>
+                                        <button className="button" onClick={() => increaseQuantity(index)}> <img src={plus} /></button>
                                     </div>
                                  
                                 </div>

@@ -1,5 +1,6 @@
 import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 import rawData from "../json/data.json";
+import { stat } from "fs";
 
 interface Image {
     thumbnail: string;
@@ -48,7 +49,7 @@ const cartReducer = createSlice({
         add: (state, action: PayloadAction<CartItem>) => {
             const existingItem = state.items.find((item : CartItem) => item.id === action.payload.id); 
             if(existingItem){
-                existingItem.count +=1;
+                existingItem.count += 1;
              
             } else {
                 state.items.push({...action.payload, count : 1});
@@ -56,7 +57,12 @@ const cartReducer = createSlice({
         },
         remove: (state, action: PayloadAction<string>) => {
             state.items = state.items.filter(item => item.id !== action.payload.toString());
-        }
+        },
+        up: (state, action: PayloadAction<CartItem>) => {
+            const newQuantity = [...cartReducer.];
+            newQuantity[index] += 1;
+            setQuantity(newQuantity);
+        },
     }
 });
 
