@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: "/frontend-mentor-solo/product-list-with-cart-main/",
   plugins: [react()],
+  css: {
+  },
   build: {
     outDir: './dist/product-list-with-cart-main/'
 }

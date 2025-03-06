@@ -59,9 +59,16 @@ const cartReducer = createSlice({
             state.items = state.items.filter(item => item.id !== action.payload.toString());
         },
         up: (state, action: PayloadAction<CartItem>) => {
-            const newQuantity = [...cartReducer.];
-            newQuantity[index] += 1;
-            setQuantity(newQuantity);
+            const existingItem = state.items.find((item => item.id === action.payload.id));
+            if(existingItem){
+                existingItem.count +=1;
+            }
+        },
+        down: (state, action: PayloadAction<string>) => {
+            const existingItem = state.items.find((item => item.id === action.payload));
+            if(existingItem && existingItem.count > 1){
+                existingItem.count -=1;
+           }
         },
     }
 });
@@ -75,6 +82,6 @@ const store = configureStore({
 });
 
 export const {  } = productReducer.actions;
-export const { add , remove } = cartReducer.actions;
+export const { add , remove, up, down } = cartReducer.actions;
 
 export default store;

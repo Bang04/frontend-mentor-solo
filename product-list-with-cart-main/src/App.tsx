@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 import { DessertList }  from "./components/DessertList";
 import { Cart } from "./components/Cart";
 

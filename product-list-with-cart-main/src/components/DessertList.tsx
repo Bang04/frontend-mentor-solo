@@ -1,11 +1,11 @@
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { add } from '../sotre/index';
+import { add,  up, down } from '../sotre/index';
 
 import minus from "../../public/assets/images/icon-decrement-quantity.svg";
 import plus from "../../public/assets/images/icon-increment-quantity.svg";
 
-//import DessertList from "./DessertList.css";
+import DessertList from "./DessertList.css";
 
 interface Image {
     thumbnail: string;
@@ -35,38 +35,36 @@ export const DessertList = () =>{
 
     const data = useSelector((state:any) => state.productReducer);
     const cart = useSelector((state:any)=> state.cartReducer);
-    const [quantity, setQuantity ] = useState<number[]>(Array(data.length).fill(1)); //1 초기 수량 설정 
-
-
-
-    //장바구니 추가
-    //현재 선택한 아이템
-    const addCart = (item : CartItem, index: number) => {
-        dispatch(add({...item, count: quantity[index],}));
-    };
-
+    const [quantity, setQuantity] = useState<number[]>(Array(data.length).fill(1));
 
     useEffect(() => {
        // console.log(cart);
     }, [cart]);
- 
-    const increaseQuantity = (index : number) => {
-        const newQuantity = [...quantity];
-        newQuantity[index] += 1;
-        setQuantity(newQuantity);
-    }
-    const decreaseQuantity = (index : number) => {
-        const newQuantity = [...quantity];
-       if(newQuantity[index] > 1){
-            newQuantity[index] -=1;
-       }
-       setQuantity(newQuantity);
-    }
-    // useEffect(() => {
-    //     const total = cart.reduce((sum, item) => sum+ (item.price* item.count), 0);
-    //     setTotalPrice(total);
-    // }, [cart]);
     
+    //수량 증가
+    const increaseQuantity = (item : any, index : number) => {
+        dispatch(add({...item, count: quantity[index]}));
+        dispatch(up(item));
+        setQuantity(preQuantity => {
+            const newQuantity = [...preQuantity];
+            newQuantity[index] = item.count;
+            return newQuantity;
+        });
+    }
+
+    //수량 감소
+    const decreaseQuantity = (item : any, index : number) => {
+        dispatch(add({...item, count: quantity[index]}));
+        dispatch(down(item));
+        if(item.count > 1){
+            setQuantity(preQuantity => {
+                const newQuantity = [...preQuantity];
+                newQuantity[index] = item.count;
+                return newQuantity;
+            });
+        }
+    }
+
     return (
         <div className="column is-four-fifths">
             <h1>Dessers</h1>
@@ -79,16 +77,12 @@ export const DessertList = () =>{
                                     <img className="image" src={item.image.desktop} />
                                 </figure>
                                 <div>
-                                    <button className="button is-danger is-rounded is-outlined"  onClick={() => addCart(item, index)}>
-                                        <span>Add to Cart</span>
-                                    </button>
-
-                                    <div>   
-                                        <button className="button" onClick={() => decreaseQuantity(index)}> <img src={minus} /></button>
+                                    <div className="add-disable">Add to Cart</div>
+                                    <div className="add-active">   
+                                        <button className="button" onClick={() => decreaseQuantity(item, index)}> <img src={minus} /></button>
                                         <div>{quantity[index]}</div>
-                                        <button className="button" onClick={() => increaseQuantity(index)}> <img src={plus} /></button>
+                                        <button className="button" onClick={() => increaseQuantity(item, index)}> <img src={plus} /></button>
                                     </div>
-                                 
                                 </div>
                              
                                 <div>{item.category}</div>

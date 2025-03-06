@@ -1,7 +1,9 @@
-.rose300{
-    color : hsl(14, 25%, 72%);
+.add-disable{
+    display: block;
 }
 
-.red{
-    color: hsl(14, 86%, 42%);
+.add-active{
+    position: absolute;
+    visibility: hidden; /* 기본적으로 숨김 */
+    opacity: 0;
 }
