@@ -31,8 +31,8 @@ export const OrderModal = ({isOpen, closeModal , cart} : any) =>{
                                     })
                                 }
                                 <div >
-                                    <div  >Order Total</div>
-                                    <div  >${total.toFixed(2)}</div>
+                                    <div>Order Total</div>
+                                    <div>${total.toFixed(2)}</div>
                                 </div>
                             </div>
                         </div>

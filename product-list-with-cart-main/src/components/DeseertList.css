@@ -1,8 +1,10 @@
+@import 'bulma/css/bulma.min.css';
+
 .add-disable{
     display: block;
 }
 
-.add-active{
+.button.active{
     position: absolute;
     visibility: hidden; /* 기본적으로 숨김 */
     opacity: 0;

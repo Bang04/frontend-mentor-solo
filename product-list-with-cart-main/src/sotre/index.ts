@@ -50,10 +50,7 @@ const cartReducer = createSlice({
             const existingItem = state.items.find((item : CartItem) => item.id === action.payload.id); 
             if(existingItem){
                 existingItem.count += 1;
-             
-            } else {
-                state.items.push({...action.payload, count : 1});
-            }
+            } 
         },
         remove: (state, action: PayloadAction<string>) => {
             state.items = state.items.filter(item => item.id !== action.payload.toString());
