@@ -40,8 +40,8 @@ export const Cart = () =>{
 
 
     return (
-        <div className="column">
-            <div>Your Cart({cart ? cart.length : 0})</div>
+        <div className="column ">
+            <div className="title is-4">Your Cart({cart ? cart.length : 0})</div>
                {cart && cart.length > 0 ?
                 (
                 <div>
@@ -52,14 +52,14 @@ export const Cart = () =>{
                         return (
                             <div key={index} className="columns">
                                 <div className="column">
-                                    <div>{item.name}</div>
+                                    <div className="has-text-weight-bold">{item.name}</div>
                                     <div className="columns">
-                                        <div className="column">{item.count}x</div>
+                                        <div className="column has-text-weight-bold">{item.count}x</div>
                                         <div className="column">${item.price.toFixed(2)}</div>
                                         <div className="column">${(item.count*item.price).toFixed(2)}</div>
                                     </div>
                                 </div>
-                                <div className="column">
+                                <div className="column is-two-fifths">
                                     <button className="button is-rounded" onClick={() => removeCart(item) }>
                                         <img src={close} />
                                     </button>
@@ -71,14 +71,14 @@ export const Cart = () =>{
                     <div>
                         <div>
                             <div>Order Total</div>
-                            <div>${total.toFixed(2)}</div>
+                            <div className="is-size-4 has-text-weight-bold">${total.toFixed(2)}</div>
                         </div>
                         <div>
                             <img src={neutral} />
                         <p> This is a <b>carbon-neutral</b> delivery</p>
                         </div>
                         <div>
-                            <button className="button" onClick={handelrOrder}>
+                            <button className="button is-rounded is-danger" onClick={handelrOrder}>
                                 Confirm Order
                             </button>
                         </div>
