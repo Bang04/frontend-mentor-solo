@@ -50,10 +50,12 @@ const cartReducer = createSlice({
             const existingItem = state.items.find((item : CartItem) => item.id === action.payload.id); 
             if(existingItem){
                 existingItem.count += 1;
-            } 
+            }else{
+                state.items.push({...action.payload, count : 1});
+            }
         },
-        remove: (state, action: PayloadAction<string>) => {
-            state.items = state.items.filter(item => item.id !== action.payload.toString());
+        remove: (state, action: PayloadAction<CartItem>) => {
+            state.items = state.items.filter(item => item.id !== action.payload.id);
         },
         up: (state, action: PayloadAction<CartItem>) => {
             const existingItem = state.items.find((item => item.id === action.payload.id));
@@ -61,8 +63,8 @@ const cartReducer = createSlice({
                 existingItem.count +=1;
             }
         },
-        down: (state, action: PayloadAction<string>) => {
-            const existingItem = state.items.find((item => item.id === action.payload));
+        down: (state, action: PayloadAction<CartItem>) => {
+            const existingItem = state.items.find((item => item.id === action.payload.id));
             if(existingItem && existingItem.count > 1){
                 existingItem.count -=1;
            }

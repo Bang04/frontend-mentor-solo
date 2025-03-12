@@ -21,7 +21,7 @@ export const OrderModal = ({isOpen, closeModal , cart} : any) =>{
                                     total += (item.count*item.price);
                                     return(
                                         <div className="columns" key={index} >
-                                                <div className="column"><img src={item.image.thumbnail}></img></div>
+                                                <div className="column"><img src={item.image.thumbnail} /></div>
                                                 <div className="column">{item.name}</div>
                                                 <div className="column">{item.count}x</div>
                                                 <div className="column">@ ${item.price.toFixed(2)}</div>

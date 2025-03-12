@@ -25,8 +25,8 @@ export const Cart = () =>{
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const deleteCart = (id : string) => {
-        dispatch(remove(id));
+    const removeCart = (item : cartItem) => {
+        dispatch(remove(item));
     }
  
 
@@ -60,7 +60,7 @@ export const Cart = () =>{
                                     </div>
                                 </div>
                                 <div className="column">
-                                    <button className="button is-rounded" onClick={() => deleteCart(item.id) }>
+                                    <button className="button is-rounded" onClick={() => removeCart(item) }>
                                         <img src={close} />
                                     </button>
                                 </div>
