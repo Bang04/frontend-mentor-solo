@@ -4,9 +4,6 @@
 
 
 
-- Add items to the cart and remove them
-- Increase/decrease the number of items in the cart
-- See an order confirmation modal when they click "Confirm Order"
-- Reset their selections when they click "Start New Order"
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+- 장바구니에 상품을 추가하고 삭제할 수 있습니다. 
+- 장바구니에 있는 상품 수를 늘리거나 줄일 수 있습니다.
+- "Confirm Order" 버튼을 클릭하면 모달창에서 주문확인을 할 수 있습니다. 
