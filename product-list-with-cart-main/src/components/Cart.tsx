@@ -38,7 +38,7 @@ export const Cart = () => {
 
 
     return (
-        <div className="column ">
+        <div className="is-flex is-flex-direction-column is-flex-grow-1">
             <div className="title is-4">Your Cart({cart ? cart.length : 0})</div>
             {cart && cart.length > 0 ?
                 (
@@ -85,8 +85,8 @@ export const Cart = () => {
                 : (
                     <div>
                         <div>
-                            <img src={emply} />
-                            <p>Your added items will appear here</p>
+                            <img src={emply} className="image"/>
+                            <p className='has-text-weight-semibold'>Your added items will appear here</p>
                         </div>
                     </div>
                 )
