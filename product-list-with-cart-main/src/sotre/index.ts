@@ -46,24 +46,24 @@ const cartReducer = createSlice({
     name: "cartReducer",
     initialState: initialState,
     reducers: {
-        add: (state, action: PayloadAction<CartItem>) => {
+        add: (state, action: PayloadAction<CartItem>) => {//해당 상품 처음 카트 담으면 기본 수량 1부터 시작
             const existingItem = state.items.find((item : CartItem) => item.id === action.payload.id); 
-            if(existingItem){
+            if(existingItem){ //이미 상품이 담긴 상태일때 수량 +1
                 existingItem.count += 1;
-            }else{
+            }else{//처음 선택했을때 기본 수량 1
                 state.items.push({...action.payload, count : 1});
             }
         },
-        remove: (state, action: PayloadAction<CartItem>) => {
+        remove: (state, action: PayloadAction<CartItem>) => {//카트에서 해당 상품 삭제
             state.items = state.items.filter(item => item.id !== action.payload.id);
         },
-        up: (state, action: PayloadAction<CartItem>) => {
+        up: (state, action: PayloadAction<CartItem>) => {//카트에 담긴 상품 수량 증가할때
             const existingItem = state.items.find((item => item.id === action.payload.id));
             if(existingItem){
                 existingItem.count +=1;
             }
         },
-        down: (state, action: PayloadAction<CartItem>) => {
+        down: (state, action: PayloadAction<CartItem>) => {//카트 상품 수량 뺄때 1보다 크면 수량 -1씩 감소 
             const existingItem = state.items.find((item => item.id === action.payload.id));
             if(existingItem && existingItem.count > 1){
                 existingItem.count -=1;
