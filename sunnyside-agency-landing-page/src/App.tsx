@@ -43,7 +43,7 @@ function App() {
       <div className='flex flex-col'>  
             {/* 계란 */}
             <div className='flex flex-col md:flex-row-reverse'>
-                <div className="felx h-50 md:h-90 md:w-1/2 bg-[url('/src/assets/images/mobile/image-transform.jpg')] bg-cover bg-center bg-no-repeat"></div>
+                <div className="felx h-50 md:h-90 md:w-1/2 bg-[url('/src/assets/images/mobile/image-transform.jpg')] md:bg-[url('/src/assets/images/desktop/image-transform.jpg')] bg-cover bg-center bg-no-repeat"></div>
                 <div className='flex flex-col h-90 max-w-md  md:w-1/2 m-auto justify-center  items-center md:items-start gap-y-5'>
                   <div className='md:max-w-3xs fraunces-900 text-2xl text-center md:text-left'>Transform your brand</div>
                   <div className='barlow text-gray-400 text-base tracking-wide text-center md:text-left '>We are a full-service creative agency specializing in helping brands grow fast. Engage your clients through compelling visuals that do most of the marketing for you. </div>
@@ -53,7 +53,7 @@ function App() {
 
             {/* 컵 */}
             <div className='flex flex-col md:flex-row'>
-                <div className="felx h-50 md:h-90 md:w-1/2 bg-[url('/src/assets/images/mobile/image-stand-out.jpg')] bg-cover bg-center bg-no-repeat"></div>
+                <div className="felx h-50 md:h-90 md:w-1/2 bg-[url('/src/assets/images/mobile/image-stand-out.jpg')] md:bg-[url('/src/assets/images/desktop/image-stand-out.jpg')] bg-cover bg-center bg-no-repeat"></div>
                 <div className='flex flex-col h-90 max-w-md  md:w-1/2 m-auto justify-center  items-center md:items-start gap-y-5'>
                   <div className='md:max-w-3xs fraunces-900 text-2xl text-center md:text-left'>Stand out to the right audience</div>
                   <div className='barlow text-gray-400 text-base tracking-wide text-center md:text-left '> Using a collaborative formula of designers, researchers, photographers, videographers, and copywriters, we’ll build and extend your brand in digital places</div>
@@ -67,17 +67,19 @@ function App() {
       
       <div className='flex flex-col md:flex-row text-center'>
          {/* 체리 */}
-            <div className="md:w-1/2 h-150 bg-cover bg-center bg-[url('/src/assets/images/mobile/image-graphic-design.jpg')] bg-no-repeat">
-                <div className='flex flex-col mt-100'>
-                    <div className='m-auto w-3xs fraunces-900 text-3xl text-gray-700'>Great design </div>
-                    <div className='mt-8 m-auto max-w-sm barlow text-gray-600'>Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</div>
+            <div className="md:w-1/2 h-150 bg-cover bg-center  bg-no-repeat bg-[url('/src/assets/images/mobile/image-graphic-design.jpg')] md:bg-[url('/src/assets/images/desktop/image-graphic-design.jpg')]">
+                <div className='flex flex-col mt-100 gap-y-5'>
+                    <div className='m-auto  max-w-3xs fraunces-900 text-gray-700 text-2xl'>Great design </div>
+                    <div className='m-auto max-w-xs barlow text-gray-600 text-sm'>Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.</div>
                 </div>
             </div>
-            {/* 귤 */}
-            <div className="md:w-1/2 h-150 bg-cover bg-center bg-[url('/src/assets/images/mobile/image-photography.jpg')] bg-no-repeat">
-                <div className='flex flex-col mt-100'>
-                    <div className='m-auto w-3xs fraunces-900 text-3xl text-gray-700'>Photography </div>
-                    <div className='mt-8 m-auto w-xs barlow text-gray-600'>Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</div>
+
+
+             {/* 귤 */}
+              <div className="md:w-1/2 h-150 bg-cover bg-center  bg-no-repeat bg-[url('/src/assets/images/mobile/image-photography.jpg')] md:bg-[url('/src/assets/images/desktop/image-photography.jpg')]">
+                <div className='flex flex-col mt-100 gap-y-5'>
+                    <div className='m-auto  max-w-3xs fraunces-900 text-gray-700 text-2xl'>Photography </div>
+                    <div className='m-auto max-w-xs barlow text-gray-600 text-sm'>Increase your credibility by getting the most stunning, high-quality photos that improve your business image.</div>
                 </div>
             </div>
       </div>
@@ -107,30 +109,30 @@ function App() {
          
       </div>
 
-      <div className='flex flex-col md:flex-row'>
-          <div className='flex flex-row w-full h-50'>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-milkbottles.jpg')] bg-cover bg-center"></div>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-orange.jpg')] bg-cover bg-center"></div>
+      <div className='flex flex-col md:flex-row '>
+          <div className='flex flex-row w-full h-50 md:h-76'>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-milkbottles.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-milkbottles.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-orange.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-orange.jpg')]  bg-cover md:bg-contain bg-center bg-no-repeat"></div>
           </div>
-          <div className='flex flex-row w-full h-50'>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-cone.jpg')] bg-cover bg-centerr"></div>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-sugar-cubes.jpg')] bg-cover bg-center"></div>
+          <div className='flex flex-row w-full h-50 md:h-76'>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-cone.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-cone.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-sugar-cubes.jpg')]  md:bg-[url('/src/assets/images/desktop/image-gallery-sugarcubes.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
           </div> 
       </div>
 
       {/* footer */}
       <div className='flex flex-col py-15 text-center bg-[#8fd4c6]'>
           <div className=' text-4xl md:text-2xl fraunces-900 text-[#2D7568]'>sunnyside</div>
-          <div className='flex flex-row w-full py-10 barlow'>
+          <div className='flex flex-row w-full py-10 barlow md:max-w-xs md:m-auto'>
               <div className='w-1/3 text-[#2D7568] md:text-sm'>About</div>
               <div className='w-1/3 text-[#2D7568] md:text-sm'>Services</div>
               <div className='w-1/3 text-[#2D7568] md:text-sm'>Projects</div>
           </div>
-          <div className='flex flex-row  m-auto w-50  py-8'>
-              <div className='w-1/4'><img src='/src/assets/images/icon-facebook.svg'/> </div>
-              <div className='w-1/4'><img src='/src/assets/images/icon-instagram.svg'/></div>
-              <div className='w-1/4'><img src='/src/assets/images/icon-twitter.svg'/></div>
-              <div className='w-1/4'><img src='/src/assets/images/icon-pinterest.svg'/></div>
+          <div className='flex flex-row  m-auto w-50  py-8 md:max-w-xs justify-items-center'>
+              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-facebook.svg'/> </div>
+              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-instagram.svg'/></div>
+              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-twitter.svg'/></div>
+              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-pinterest.svg'/></div>
           </div>
       </div>
 
