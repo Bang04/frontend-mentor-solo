@@ -111,12 +111,12 @@ function App() {
 
       <div className='flex flex-col md:flex-row '>
           <div className='flex flex-row w-full h-50 md:h-76'>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-milkbottles.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-milkbottles.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-orange.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-orange.jpg')]  bg-cover md:bg-contain bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-milkbottles.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-milkbottles.jpg')] bg-cover  bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-orange.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-orange.jpg')]  bg-cover bg-center bg-no-repeat"></div>
           </div>
           <div className='flex flex-row w-full h-50 md:h-76'>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-cone.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-cone.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
-              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-sugar-cubes.jpg')]  md:bg-[url('/src/assets/images/desktop/image-gallery-sugarcubes.jpg')] bg-cover md:bg-contain bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-cone.jpg')] md:bg-[url('/src/assets/images/desktop/image-gallery-cone.jpg')] bg-cover  bg-center bg-no-repeat"></div>
+              <div className="w-1/2 bg-[url('/src/assets/images/mobile/image-gallery-sugar-cubes.jpg')]  md:bg-[url('/src/assets/images/desktop/image-gallery-sugarcubes.jpg')] bg-cover bg-center bg-no-repeat"></div>
           </div> 
       </div>
 
