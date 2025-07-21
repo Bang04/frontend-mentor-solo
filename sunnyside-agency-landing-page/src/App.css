@@ -1,0 +1,17 @@
+/* Barlow - weight 600 */
+.barlow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+}
+
+/* Fraunces - weight 700 */
+.fraunces-700 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+}
+
+/* Fraunces - weight 900 */
+.fraunces-900 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+}
