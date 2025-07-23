@@ -143,8 +143,8 @@ function App() {
 
 
       {/* Menu */}
-        <div className={`${isOpen ? 'flex' : 'hidden'} absolute inset-0 flex items-center justify-center my-10 mx-8 md:hidden`}>
-            <div className='flex min-w-3xs  bg-white text-center'>
+        <div className={`${isOpen ? 'flex' : 'hidden'} absolute inset-0 items-baseline justify-center mt-20 my-10 mx-8 md:hidden`}>
+            <div className='flex min-w-3xs  bg-white text-center '>
                 <div className='flex-col md:flex-row my-7 mx-4'>
                     <div className='text-2xl text-gray-400 px-15 py-5 hover:font-bold  hover:text-gray-800 hover:bg-yellow-300 hover:rounded-full'>About</div>
                     <div className='text-2xl text-gray-400 px-15 py-5 hover:font-bold  hover:text-gray-800 hover:bg-yellow-300 hover:rounded-full'>Services</div>
