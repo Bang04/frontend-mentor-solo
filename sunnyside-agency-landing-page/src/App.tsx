@@ -6,8 +6,7 @@ import facebook from '/src/assets/images/icon-facebook.svg';
 import instagram from '/src/assets/images/icon-instagram.svg';
 import twitter from '/src/assets/images/icon-twitter.svg';
 import pinterest from '/src/assets/images/icon-pinterest.svg';
-
-
+import arrow from '/src/assets/images/icon-arrow-down.svg';
 
 function App() {
     const [isOpen, setIsOpen ] = useState(false);
@@ -40,7 +39,7 @@ function App() {
             
             <div className='flex flex-col'>
                 <p className='fraunces-900 pt-20 text-center font-bold text-white tracking-[.25em] text-4xl md:text-5xl'>WE ARE CREATIVES</p>
-                <img className='h-40 mt-5 mb-24 md:mb-50 object-scale-down' src='/src/assets/images/icon-arrow-down.svg' />
+                <img className='h-40 mt-5 mb-24 md:mb-50 object-scale-down' src={arrow} />
             </div>
       </div>
 
