@@ -8,6 +8,7 @@ import { OrderModal } from "./OrderModal";
 import close from "../../public/assets/images/icon-remove-item.svg";
 import emply from "../../public/assets/images/illustration-empty-cart.svg";
 import neutral from "../../public/assets/images/icon-carbon-neutral.svg";
+
 interface cartItem {
     id: string;
     name: string;
@@ -38,11 +39,11 @@ export const Cart = () => {
 
 
     return (
-        <div className="is-flex is-flex-direction-column is-flex-grow-1">
+        <div className="is-flex is-flex-direction-column m-6">
             <div className="title is-4">Your Cart({cart ? cart.length : 0})</div>
             {cart && cart.length > 0 ?
                 (
-                    <div>
+                    <div className='is-flex is-flex-direction-column'>
                         {
                             cart.map((item: any, index: number) => {
                                 total += (item.count * item.price);
@@ -75,7 +76,7 @@ export const Cart = () => {
                                 <p> This is a <b>carbon-neutral</b> delivery</p>
                             </div>
                             <div>
-                                <button className="button is-rounded is-danger" onClick={handelrOrder}>
+                                <button className="button is-rounded is-danger has-text-white has-background-danger	" onClick={handelrOrder}>
                                     Confirm Order
                                 </button>
                             </div>
@@ -83,10 +84,10 @@ export const Cart = () => {
                     </div>
                 )
                 : (
-                    <div>
-                        <div>
+                    <div className='is-flex my-4'>
+                        <div className="mx-3 my-4">
                             <img src={emply} className="image"/>
-                            <p className='has-text-weight-semibold'>Your added items will appear here</p>
+                            <div className='has-text-weight-semibold'>Your added items will appear here</div>
                         </div>
                     </div>
                 )
