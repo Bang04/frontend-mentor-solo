@@ -1,5 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import logo from '/src/assets/images/logo.svg';
+import hamburger from '/src/assets/images/icon-hamburger.svg';
+import facebook from '/src/assets/images/icon-facebook.svg';
+import instagram from '/src/assets/images/icon-instagram.svg';
+import twitter from '/src/assets/images/icon-twitter.svg';
+import pinterest from '/src/assets/images/icon-pinterest.svg';
+
+
 
 function App() {
     const [isOpen, setIsOpen ] = useState(false);
@@ -14,12 +22,12 @@ function App() {
             <div className='flex flex-row justify-between pt-10 px-7'>
             {/* 로고 */}
             <div className='text-blue-600'>
-                <img src='/src/assets/images/logo.svg' alt='logo'/>
+                <img src={logo} alt='logo'/>
             </div>
 
             {/* 사이드 메뉴& 햄버거 버튼 */}
             <div>
-                <div className='md:hidden'><button onClick={handlerMenu}><img src='/src/assets/images/icon-hamburger.svg' /></button></div>
+                <div className='md:hidden'><button onClick={handlerMenu}><img src={hamburger} /></button></div>
                 <div className='flex flex-row hidden md:flex'>
                     <div className='text-white text-sm px-3 py-2 hover:font-bold  hover:text-black hover:bg-white hover:rounded-full'>About</div> 
                     <div className='text-white text-sm px-3 py-2 hover:font-bold  hover:text-black hover:bg-white hover:rounded-full'>Services</div> 
@@ -127,10 +135,10 @@ function App() {
               <div className='w-1/3 text-[#2D7568] md:text-sm'>Projects</div>
           </div>
           <div className='flex flex-row  m-auto w-50  py-8 md:max-w-xs justify-items-center'>
-              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-facebook.svg'/> </div>
-              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-instagram.svg'/></div>
-              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-twitter.svg'/></div>
-              <div className='w-1/4 justify-items-center'><img src='/src/assets/images/icon-pinterest.svg'/></div>
+              <div className='w-1/4 justify-items-center'><img src={facebook}/> </div>
+              <div className='w-1/4 justify-items-center'><img src={instagram}/></div>
+              <div className='w-1/4 justify-items-center'><img src={twitter}/></div>
+              <div className='w-1/4 justify-items-center'><img src={pinterest}/></div>
           </div>
       </div>
 
