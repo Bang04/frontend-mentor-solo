@@ -2,11 +2,14 @@
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
+    { "path": "./tsconfig.node.json" },
+    ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.d.ts"  
-  ]
+    "src/**/*.d.ts", 
+    "./*.d.ts"
+    
+  ],
+
 }

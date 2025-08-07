@@ -29,44 +29,50 @@ export const DessertList = () => {
         dispatch(down(item));
     }
 
-    return (<div className="is-flex is-flex-direction-column is-flex-grow-2">
-                <div className="title is-size-1-mobile is-size-2-tablet is-size-3-desktop">Dessers</div>
+    return (<div className="column is-two-thirds ">
+                <div className="title is-size-1-mobile is-size-2-tablet is-size-3-desktop">Desserts</div>
                 <div className="columns is-multiline">
                     {
                         data.map((item: any, index: number) => {
                             const cartItem = cart.find((cartitem: any) => cartitem.id === item.id);
                             return (
-                                <div className="column is-one-third is-relative" key={index}>
-                                    <figure className="image">
-                                        <img className="image is-hidden-mobile is-hidden-tablet-only" src={item.image.desktop} />   {/*데스크탑 모드*/}
-                                        <img className="image is-hidden-mobile is-hidden-desktop" src={item.image.tablet} />        {/*테블릿 모드*/}
-                                        <img className="image is-hidden-tablet is-hidden-desktop" src={item.image.mobile} />        {/*모바일 모드*/}
-                                    </figure>
-                                    <div className="button_group is-overlay has-text-centered ">
-                                        {cartItem && cartItem.count >= 1 ?  //1개이상 선택된 상품 버튼 변경(수량 선택)
-                                            <div className="is-flex active-button has-background-danger is-rounded is-justify-content-space-between">
-                                                <button onClick={() => decreaseQuantity(item)}  className="button is-outlined is-small">
-                                                    <img src={minus} />
-                                                </button>
-                                                <div className="has-text-white is-size-6 mx-2">{cartItem.count}</div>
-                                                <button onClick={() => increaseQuantity(item)}  className="button is-outlined is-small">
-                                                    <img src={plus} />
-                                                </button>
+                                <div className="column is-one-third">
+                                  <div className="is-flex is-relative "  key={index}>
+                                     <div className="is-flex is-flex-direction-column mb-4">
+                                            <figure className="image" >
+                                                <img className="image is-hidden-mobile is-hidden-tablet-only" src={item.image.desktop}  style={{ borderRadius: "1rem", ...(cartItem && cartItem.count >= 1 ? {border: "2px solid",  borderColor: "#C73B0F"}: "")}}/>   {/*데스크탑 모드*/}
+                                                <img className="image is-hidden-mobile is-hidden-desktop" src={item.image.tablet} style={{ borderRadius: "1rem", ...(cartItem && cartItem.count >= 1 ? {border: "2px solid",  borderColor: "#C73B0F"}: "")}}/>        {/*테블릿 모드*/}
+                                                <img className="image is-hidden-tablet is-hidden-desktop" src={item.image.mobile}style={{ borderRadius: "1rem", ...(cartItem && cartItem.count >= 1 ? {border: "2px solid",  borderColor: "#C73B0F"}: "")}} />        {/*모바일 모드*/}
+                                            </figure>
+                                            <div className="is-flex is-overlay is-justify-content-center is-align-items-flex-end ">
+                                                { cartItem && cartItem.count >= 1 ?  //1개이상 선택된 상품 버튼 변경(수량 선택)
+                                                        <div className="is-flex active-button  is-justify-content-space-between bg-red p-2"  style={{ borderRadius: "3rem"}}>
+                                                            <button onClick={() => decreaseQuantity(item)}  className="button is-outlined p-2 m-0 p is-size-7 is-rounded">
+                                                                <img src={minus}  className="image"/>
+                                                            </button>
+                                                            <div className="has-text-white is-size-6 has-text-weight-bold mx-5">{cartItem.count}</div>
+                                                            <button onClick={() => increaseQuantity(item)}  className="button is-outlined p-2 is-size-7 is-rounded">
+                                                                <img src={plus} />
+                                                            </button>
+                                                        </div>
+                                                        ://기본 버튼(상품 담기 버튼)
+                                                        <div className="is-flex is-flex-direction-column active-button is-justify-content-center">
+                                                            <button className="button is-rounded has-background-white has-text-black is-size-7 p-2 px-5" onClick={() => addCart(item, index)}>
+                                                                <img src={cartIcon} /> Add to Cart
+                                                            </button>
+                                                        </div>
+                                                    }
                                             </div>
-                                            ://기본 버튼(상품 담기 버튼)
-                                            <div className="is-flex active-button">
-                                                <button className="button is-rounded has-background-white has-text-black is-size-7 p-2 px-5" onClick={() => addCart(item, index)}>
-                                                    <img src={cartIcon} /> Add to Cart
-                                                </button>
-                                            </div>
-                                        }
+                                        </div>
                                     </div>
-                                    <div className="is-relative mt-5">
-                                        <div>{item.category}</div>
+
+                                    <div className="is-flex is-flex-direction-column mt-3">
+                                        <div className="RedHatText">{item.category}</div>
                                         <div className="has-text-weight-bold">{item.name}</div>
-                                        <div className="has-text-weight-bold"><p className="red">${item.price.toFixed(2)}</p></div>
+                                        <div className="has-text-weight-bold text-red">${item.price.toFixed(2)}</div>
                                     </div>
                                 </div>
+                              
                             );
                         })
                     }

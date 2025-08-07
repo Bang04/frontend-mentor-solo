@@ -9,6 +9,7 @@ import close from "../../public/assets/images/icon-remove-item.svg";
 import emply from "../../public/assets/images/illustration-empty-cart.svg";
 import neutral from "../../public/assets/images/icon-carbon-neutral.svg";
 
+
 interface cartItem {
     id: string;
     name: string;
@@ -39,8 +40,8 @@ export const Cart = () => {
 
 
     return (
-        <div className="is-flex is-flex-direction-column m-6">
-            <div className="title is-4">Your Cart({cart ? cart.length : 0})</div>
+        <div className="column ml-5 p-5 has-background-white">
+            <div className="title is-4 text-red">Your Cart({cart ? cart.length : 0})</div>
             {cart && cart.length > 0 ?
                 (
                     <div className='is-flex is-flex-direction-column'>
@@ -48,47 +49,44 @@ export const Cart = () => {
                             cart.map((item: any, index: number) => {
                                 total += (item.count * item.price);
                                 return (
-                                    <div key={index} className="columns has-background-white">
-                                        <div className="column">
-                                            <div className="has-text-weight-bold">{item.name}</div>
+                                    <div key={index} className="columns" style={{ borderBottom :"1px solid", borderColor:"#F5EEEC" }}>
+                                        <div className="column is-10">
+                                            <div className="is-size-7 has-text-weight-bold mb-2">{item.name}</div>
                                             <div className="columns">
-                                                <div className="column has-text-weight-bold">{item.count}x</div>
-                                                <div className="column">${item.price.toFixed(2)}</div>
-                                                <div className="column">${(item.count * item.price).toFixed(2)}</div>
+                                                <div className="column is-2 is-size-7 has-text-weight-bold text-red">{item.count}x</div>
+                                                <div className='column is-3 is-size-7 text-rose500'>@  ${item.price.toFixed(2)}</div>
+                                                <div className='column is-2 is-size-7 text-rose500 has-text-weight-bold' >${(item.count * item.price).toFixed(2)}</div>
                                             </div>
                                         </div>
-                                        <div className="column is-two-fifths">
-                                            <button className="button is-rounded" onClick={() => removeCart(item)}>
-                                                <img src={close} />
+                                        <div className='column'>
+                                             <button className="column button is-rounded m-0 p-0" onClick={() => removeCart(item)}>
+                                                <img src={close}  className='image is-16x16'/>
                                             </button>
                                         </div>
+                                       
                                     </div>
                                 )
                             })
                         }
                         <div>
-                            <div>
-                                <div>Order Total</div>
-                                <div className="is-size-4 has-text-weight-bold">${total.toFixed(2)}</div>
+                            <div className='is-flex is-flex-direction-row is-align-items-center is-justify-content-space-between'>
+                                <div className='is-size-7'>Order Total</div>
+                                <div className="is-size-4 has-text-weight-extrabold">${total.toFixed(2)}</div>
                             </div>
-                            <div>
-                                <img src={neutral} />
-                                <p> This is a <b>carbon-neutral</b> delivery</p>
+                            <div className='is-align-items-center ' style={{ borderRadius: "0.5rem",  backgroundColor : "rgb(245,238,236)" }}>
+                               
+                                <div className='has-text-centered is-size-7 py-3 mt-3'> <img src={neutral} /> This is a <b>carbon-neutral</b> delivery</div>
                             </div>
-                            <div>
-                                <button className="button is-rounded is-danger has-text-white has-background-danger	" onClick={handelrOrder}>
-                                    Confirm Order
-                                </button>
-                            </div>
+                             <button className=" button is-rounded is-fullwidth has-text-white is-size-8 bg-red mt-5 py-3" onClick={handelrOrder}>
+                                Confirm Order
+                            </button>
                         </div>
                     </div>
                 )
                 : (
-                    <div className='is-flex my-4'>
-                        <div className="mx-3 my-4">
-                            <img src={emply} className="image"/>
-                            <div className='has-text-weight-semibold'>Your added items will appear here</div>
-                        </div>
+                    <div className="is-flex  is-flex-direction-column is-align-content-center mx-3 my-4">
+                        <img src={emply} className="image is-128x128 m-auto" />
+                        <div className='is-size-7 has-text-weight-semibold text-rose500 mt-3'>Your added items will appear here</div>
                     </div>
                 )
             }

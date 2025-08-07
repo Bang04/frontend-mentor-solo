@@ -1,3 +1,4 @@
+@import 'bulma/css/bulma.css';
 
 @font-face {
     font-family: 'RedHatText';
@@ -26,4 +27,17 @@
   h1{
     font-family: 'RedHatText', sans-serif;
     font-weight: bold;
+  }
+
+  .text-red{
+    color: #C73B0F;
+  }
+  .text-rose500{
+    color: #87635A;
+  }
+  .row100{
+    color: #F5EEEC;
+  }
+   .bg-red{
+    background-color: #C73B0F;
   }
