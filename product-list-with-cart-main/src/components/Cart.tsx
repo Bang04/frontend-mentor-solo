@@ -40,7 +40,7 @@ export const Cart = () => {
 
 
     return (
-        <div className="column ml-5 p-5 has-background-white">
+         <div className="is-flex is-flex-direction-column has-background-white m-5 p-5">
             <div className="title is-4 text-red">Your Cart({cart ? cart.length : 0})</div>
             {cart && cart.length > 0 ?
                 (
@@ -49,13 +49,13 @@ export const Cart = () => {
                             cart.map((item: any, index: number) => {
                                 total += (item.count * item.price);
                                 return (
-                                    <div key={index} className="columns" style={{ borderBottom :"1px solid", borderColor:"#F5EEEC" }}>
+                                    <div key={index} className="columns border-bottom">
                                         <div className="column is-10">
                                             <div className="is-size-7 has-text-weight-bold mb-2">{item.name}</div>
                                             <div className="columns">
-                                                <div className="column is-2 is-size-7 has-text-weight-bold text-red">{item.count}x</div>
-                                                <div className='column is-3 is-size-7 text-rose500'>@  ${item.price.toFixed(2)}</div>
-                                                <div className='column is-2 is-size-7 text-rose500 has-text-weight-bold' >${(item.count * item.price).toFixed(2)}</div>
+                                                <div className="column is-1 is-size-7 has-text-weight-bold text-red">{item.count}x</div>
+                                                <div className='column is-3 is-size-7 text-rose500'>@${item.price.toFixed(2)}</div>
+                                                <div className='column is-1 is-size-7 text-rose500 has-text-weight-bold' >${(item.count * item.price).toFixed(2)}</div>
                                             </div>
                                         </div>
                                         <div className='column'>
