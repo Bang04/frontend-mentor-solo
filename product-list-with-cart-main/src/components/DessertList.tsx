@@ -30,7 +30,7 @@ export const DessertList = () => {
     }
 
     return (
-        <div className="is-flex is-flex-direction-column mx-5 p-5">
+        <div className="is-flex is-flex-direction-column container is-max-desktop mx-auto p-5">
             <div className="title is-size-1-mobile is-size-2-tablet is-size-3-desktop">Desserts</div>
             <div className="columns is-multiline">
                 {

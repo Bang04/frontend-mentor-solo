@@ -49,10 +49,10 @@ export const Cart = () => {
                             cart.map((item: any, index: number) => {
                                 total += (item.count * item.price);
                                 return (
-                                    <div key={index} className="columns border-bottom">
+                                    <div key={index} className="columns is-mobile border-bottom">
                                         <div className="column is-10">
                                             <div className="is-size-7 has-text-weight-bold mb-2">{item.name}</div>
-                                            <div className="columns">
+                                            <div className="columns is-mobile">
                                                 <div className="column is-1 is-size-7 has-text-weight-bold text-red">{item.count}x</div>
                                                 <div className='column is-3 is-size-7 text-rose500'>@${item.price.toFixed(2)}</div>
                                                 <div className='column is-1 is-size-7 text-rose500 has-text-weight-bold' >${(item.count * item.price).toFixed(2)}</div>
