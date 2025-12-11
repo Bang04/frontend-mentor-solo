@@ -1,69 +1,37 @@
-# React + TypeScript + Vite
+# 🏢 sunnyside-agency-landing-page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 반응형 랜딩 페이지 UI 구현 프로젝트 (Static Landing Page)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo  
+🔗 배포 링크: _
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📅 프로젝트 기간  
+_(작성한 기간 입력)_
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📌 주요 기능
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- 랜딩 페이지 UI/UX 디자인 구현  
+- Hero / Features / CTA 섹션 구성  
+- 반응형 레이아웃 (Mobile / Tablet / Desktop)  
+- CSS (또는 Tailwind / Bulma 등) 기반 스타일링  
+
+
+
+## 🛠 기술 스택
+
+- HTML5 · CSS3 · JavaScript  
+- (만약 React 사용했다면) React  
+- (사용한 CSS 프레임워크 또는 custom CSS)
+
+
+
+## 📝 회고 & 개선 포인트
+
+- 반응형 UI 레이아웃 설계 능력 향상  
+- UI/UX 시각 구성 감각 강화  
