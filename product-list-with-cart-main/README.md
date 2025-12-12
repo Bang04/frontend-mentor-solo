@@ -58,29 +58,8 @@
 <img src="https://img.shields.io/badge/Bulma-00D1B2?style=flat-square&logo=bulma&logoColor=white"/>
 
 
-## 📁 프로젝트 구조
-```
-src/
- ├── components/
- ├── pages/
- ├── redux/
- ├── types/
- ├── assets/
- ├── hooks/
- └── App.tsx
-```
-
-## 📦 설치 & 실행
-```
- npm install
- npm run dev
-```
 
 
-```
-빌드
- npm run build
-```
 ## 📝 회고 & 개선 포인트
 
 - Redux로 상태를 관리하며 UI 상태와 비즈니스 로직 상태 분리의 중요성을 학습
