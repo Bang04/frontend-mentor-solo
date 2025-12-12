@@ -7,7 +7,7 @@
 # 📂 Projects Overview
 | Project                    | Stack                                | Type    | Preview |
 | -------------------------- | ------------------------------------ | ------- | ------- |
-| **Product List with Cart** | React · Redux · Vite · TypeScript · Tailwind      | 🎯 Solo | [🔗](추가예정)     |
+| **Product List with Cart** | React · Redux · Vite · TypeScript · Tailwind      | 🎯 Solo | [🔗](https://b-dessert.vercel.app/)     |
 | **sunnyside-agency-landing-page** | React · Vite · TypeScript · Tailwind      | 🎯 Solo |    [🔗](추가예정)    |
 | **url-shortening-api-master** |   | 🎯 Solo |       |
 
@@ -35,7 +35,7 @@
 
 - 📐 반응형 디자인
 
---
+---
 
 # 📎 프로젝트 폴더 바로가기
 - [Product List with Cart](./product-list-with-cart-main)
