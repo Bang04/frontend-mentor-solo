@@ -8,7 +8,7 @@ export default defineConfig({
   css: {
   },
   build: {
-    outDir: './dist/product-list-with-cart-main/'
+    outDir: 'dist',
 }
 })
 
