@@ -1,16 +1,20 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Boots from './components/Boots';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
+import UrlForm from './components/UrlForm';
+import Features from './components/Features';
+import Call from './components/Call';
 
 function App() {
   return (
     <>
       <Header />
-      <MainContent />
-      <Boots />
+      <Hero />
+      <UrlForm />
+      <Features />
+      <Call />
       <Footer />
     </>
   );

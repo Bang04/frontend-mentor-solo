@@ -6,37 +6,40 @@ import twitter from "../assets/images/icon-twitter.svg";
 
 const Footer = () => {
     return (
-        <div className="bg-purple-900">
-            <img src={logo}/>
-            <div>
-               <div>
-                        <div>Features</div>
-                         <div>Link Shortening</div>
-                         <div>Branded Links</div>
-                         <div>Analytics</div>
-                    </div>
-                    <div>
-                        <div>Resources</div> 
-                        <div>Blog</div> 
-                        <div>Developers</div> 
-                        <div>Support</div> 
-                    </div>
-                    <div>
-                        <div>Company</div> 
-                        <div>About</div> 
-                        <div >Our Team</div> 
-                        <div>Careers</div> 
-                        <div>Contact</div> 
-                    </div>
-            </div>
-            <div>
-                <div> <img src={facebook} /></div>
-                 <div> <img src={twitter} /></div>
-                  <div> <img src={pinterest} /></div>
-                   <div> <img src={instagram} /></div>
-            </div>
+        <footer className="bg-gray-900 text-white py-16">
+            <div className="max-w-6xl mx-auto px-4 grid gap-10 md:grid-cols-4">
+                <div>
+                    <a href="#" className="text-2xl font-bold">LOGO</a>
+                </div>
 
-        </div>
+                <div>
+                    <h4 className="font-bold mb-4">Features</h4>
+                    <ul className="space-y-2 text-gray-400">
+                        <li><a href="#" className="hover:text-white">Link Shortening</a></li>
+                        <li><a href="#" className="hover:text-white">Branded Links</a></li>
+                        <li><a href="#" className="hover:text-white">Analytics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 className="font-bold mb-4">Resources</h4>
+                    <ul className="space-y-2 text-gray-400">
+                        <li><a href="#" className="hover:text-white">Blog</a></li>
+                        <li><a href="#" className="hover:text-white">Developers</a></li>
+                        <li><a href="#" className="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 className="font-bold mb-4">Company</h4>
+                    <ul className="space-y-2 text-gray-400">
+                        <li><a href="#" className="hover:text-white">About</a></li>
+                        <li><a href="#" className="hover:text-white">Our Team</a></li>
+                        <li><a href="#" className="hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     )
 }
 
