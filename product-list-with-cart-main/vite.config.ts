@@ -8,7 +8,7 @@ export default defineConfig({
   css: {
   },
   build: {
-    outDir: 'dist',
+    outDir: 'dist'
 }
 })
 
