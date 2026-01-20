@@ -8,8 +8,8 @@
 | Project                    | Stack                                | Type    | Preview |
 | -------------------------- | ------------------------------------ | ------- | ------- |
 | **Product List with Cart** | React · Redux · Vite · TypeScript · Tailwind      | 🎯 Solo | [🔗](https://b-dessert.vercel.app/)     |
-| **sunnyside-agency-landing-page** | React · Vite · TypeScript · Tailwind      | 🎯 Solo |    [🔗](추가예정)    |
-| **url-shortening-api-master** |  React · Vite · Tailwind | 🎯 Solo |   [🔗](추가예정)     |
+| **sunnyside-agency-landing-page** | React · Vite · TypeScript · Tailwind      | 🎯 Solo |      |
+| **url-shortening-api-master** |  React · Vite · Tailwind | 🎯 Solo |      |
 
 ---
 
