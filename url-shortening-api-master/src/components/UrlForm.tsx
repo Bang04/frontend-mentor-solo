@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TinyURL } from "./TinyURL";
 
-import bgDesktop from "../assets/images/bg-boost-desktop.svg";
-import bgMobile from "../assets/images/bg-boost-mobile.svg";
-
 type ShortItem = {
   original: string;
   short: string;
@@ -66,11 +63,7 @@ const UrlForm = () => {
     <section className="relative -mt-20">
       <div className="max-w-6xl mx-auto px-4">
         <div
-          className=" rounded-xl p-6 md:p-10
-                bg-[url('../assets/images/bg-boost-desktop.svg)]
-                md:bg-[url('../assets/images/bg-boost-mobile.svg')]
-                bg-no-repeat bg-right bg-cover"
-        >
+          className="rounded-xl p-6 md:p-10 bg-boost-mobile md:bg-boost-desktop bg-no-repeat bg-right bg-cover">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col md:flex-row gap-4">

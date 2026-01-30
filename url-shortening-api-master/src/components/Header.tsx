@@ -1,16 +1,19 @@
 
 import React from "react";
+import { useState } from "react";
 import logo from '../assets/images/logo.svg';
+import HamburgerButton from "./HamburgerButton";
 const Header = () => {
 
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <header className="flex max-w-7xl items-center justify-between m-auto mt-5">
             <a href="#" className="logo"><img src={logo} /></a>
-            <button
-                onClick={() => { setIsOpen(!isOpen) }}
-                className="flex md:hidden">메뉴열기</button>
+
+            <HamburgerButton
+                onToggle={() => setIsOpen(preve =>!preve)}
+                isOpen={isOpen} />
 
             {/* {모바일 메뉴} */}
             <nav className={`md:hidden ${isOpen ? 'flex' : 'hidden'} fixed top-24 left-1/2 -translate-x-1/2 w-[80%] bg-purple-700 rounded-2xl shadow-xl`}>
@@ -40,10 +43,9 @@ const Header = () => {
                 </div>
             </nav>
 
-
             {/* {웹 메뉴} */}
-            <nav className="hidden md:flex">
-                 <div className="flex flex-row mx-3">
+            <nav className="hidden md:flex w-full justify-between">
+                <div className="flex flex-row mx-3">
                     <div className="m-4 text-gray-400 font-black">Features</div>
                     <div className="m-4 text-gray-400 font-black">Pricing</div>
                     <div className="m-4 text-gray-400 font-black">Resources</div>
