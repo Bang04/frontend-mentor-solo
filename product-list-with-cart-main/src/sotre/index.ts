@@ -32,15 +32,15 @@ const initialState: CartState = {
     items: [],
 };
 
-const productReducer = createSlice({
-    name: 'productReducer',
-    initialState: rawData.map((item:any, index:number) => ({
-        ...item,
-     id: index.toString(),
-    })),
-    reducers: {
-    },
-});
+// const productReducer = createSlice({
+//     name: 'productReducer',
+//     initialState: rawData.map((item:any, index:number) => ({
+//         ...item,
+//      id: index.toString(),
+//     })),
+//     reducers: {
+//     },
+// });
 
 const cartReducer = createSlice({
     name: "cartReducer",
@@ -75,12 +75,12 @@ const cartReducer = createSlice({
 
 const store = configureStore({
     reducer: {
-        productReducer : productReducer.reducer,
+       // productReducer : productReducer.reducer,
         cartReducer: cartReducer.reducer
     }
 });
 
-export const {  } = productReducer.actions;
+//export const {  } = productReducer.actions;
 export const { add , remove, up, down } = cartReducer.actions;
 
 export default store;

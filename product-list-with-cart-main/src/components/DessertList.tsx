@@ -1,3 +1,5 @@
+import { useProducts } from "../hooks/useProducts";
+
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { add, up, down } from '../sotre/index';
@@ -7,14 +9,19 @@ import plus from "../../public/assets/images/icon-increment-quantity.svg";
 import cartIcon from "../../public/assets/images/icon-add-to-cart.svg";
 
 export const DessertList = () => {
-
+    const { data , isLoading, error } = useProducts();
     const dispatch = useDispatch();
 
-    const data = useSelector((state: any) => state.productReducer);
+    //const data = useSelector((state: any) => state.productReducer);
     const cart = useSelector((state: any) => state.cartReducer.items) || [];
 
-    const [quantity, setQuantity] = useState<number[]>(Array(data.length).fill(1));
+    const [quantity, setQuantity] = useState<number[]>([])
 
+useEffect(() => {
+  if (data) {
+    setQuantity(Array(data.length).fill(1))
+  }
+}, [data])
     //장바구니에 상품 추가하기
     const addCart = (item: any, index: number) => {
         dispatch(add({ ...item, count: quantity[index] }));
@@ -33,8 +40,9 @@ export const DessertList = () => {
         <div className="is-flex is-flex-direction-column container is-max-desktop mx-auto p-5">
             <div className="title is-size-1-mobile is-size-2-tablet is-size-3-desktop">Desserts</div>
             <div className="columns is-multiline">
+                {isLoading && <div>Loading....</div>}
                 {
-                    data.map((item: any, index: number) => {
+                    data?.map((item: any, index: number) => {
                         const cartItem = cart.find((cartitem: any) => cartitem.id === item.id);
                         return (
                             <div className="column is-one-third">
