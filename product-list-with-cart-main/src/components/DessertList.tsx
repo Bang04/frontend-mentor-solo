@@ -2,13 +2,16 @@ import { useProducts } from "../hooks/useProducts";
 
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { add, up, down } from '../sotre/index';
+//import { add, up, down } from '../sotre/index';
 
 import minus from "../../public/assets/images/icon-decrement-quantity.svg";
 import plus from "../../public/assets/images/icon-increment-quantity.svg";
 import cartIcon from "../../public/assets/images/icon-add-to-cart.svg";
+import { useCartStore } from "../sotre";
 
 export const DessertList = () => {
+
+    const { add, up, down } = useCartStore();
     const { data , isLoading, error } = useProducts();
     const dispatch = useDispatch();
 
@@ -24,16 +27,19 @@ useEffect(() => {
 }, [data])
     //장바구니에 상품 추가하기
     const addCart = (item: any, index: number) => {
-        dispatch(add({ ...item, count: quantity[index] }));
+       // dispatch(add({ ...item, count: quantity[index] }));
+       add({...item, count: quantity[index]})
     }
     //선택상품수량 증가
     const increaseQuantity = (item: any) => {
-        dispatch(up(item));
+       // dispatch(up(item));
+       up(item.id);
     }
 
     //선택상품수량 감소
     const decreaseQuantity = (item: any) => {
-        dispatch(down(item));
+        //dispatch(down(item));
+        down(item.id);
     }
 
     return (

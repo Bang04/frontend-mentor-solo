@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../sotre/index';
+//import { remove } from '../sotre/index';
 
 import { OrderModal } from "./OrderModal";
 
 import close from "../../public/assets/images/icon-remove-item.svg";
 import emply from "../../public/assets/images/illustration-empty-cart.svg";
 import neutral from "../../public/assets/images/icon-carbon-neutral.svg";
+import { useCartStore } from '../sotre';
 
 
 interface cartItem {
@@ -20,7 +21,9 @@ interface cartItem {
 
 export const Cart = () => {
 
+
     const cart = useSelector((state: any) => state.cartReducer.items);
+    const { remove } = useCartStore();
     const dispatch = useDispatch();
     let total = 0;
 
