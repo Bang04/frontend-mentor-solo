@@ -1,5 +1,5 @@
 import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
-import rawData from "../json/data.json";
+import rawData from "./data.json";
 import { stat } from "fs";
 
 interface Image {
