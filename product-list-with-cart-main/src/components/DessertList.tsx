@@ -2,7 +2,7 @@ import { useProducts } from "../hooks/useProducts";
 
 import { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { add, up, down } from '../sotre/index';
+import { add, up, down } from '../store/index';
 
 import minus from "../../public/assets/images/icon-decrement-quantity.svg";
 import plus from "../../public/assets/images/icon-increment-quantity.svg";

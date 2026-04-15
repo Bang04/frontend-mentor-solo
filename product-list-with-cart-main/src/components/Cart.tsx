@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from '../sotre/index';
+import { remove } from '../store/index';
 
 import { OrderModal } from "./OrderModal";
 
