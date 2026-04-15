@@ -1,5 +1,5 @@
-import { DessertList } from "./components/DessertList";
-import { Cart } from "./components/Cart";
+import { DessertList } from "./pages/DessertList";
+import { Cart } from "./pages/Cart";
 
 function App() {
   return (
