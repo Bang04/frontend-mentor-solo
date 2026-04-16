@@ -1,6 +1,3 @@
-import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
-
 import { create } from "zustand";
 
 interface Image {
@@ -26,20 +23,12 @@ interface CartItem {
 }
 
 interface CartState {
-  add: any;
-  remove: any;
-  up: any;
-  down: any;
+  add: (item: CartItem) => void;
+  remove: (id: string) => void;
+  up: (id: string) => void;
+  down: (id: string) => void;
   items: CartItem[];
 }
-
-const initialState: CartState = {
-    items: [],
-    add: undefined,
-    remove: undefined,
-    up: undefined,
-    down: undefined
-};
 
 // const productReducer = createSlice({
 //     name: 'productReducer',
@@ -53,25 +42,26 @@ const initialState: CartState = {
 
 export const useCartStore = create<CartState>((set) => ({
   items: [],
-  add: (item: CartItem) =>
+  add: (newItem: CartItem) =>
     set((state) => {
       const existingItem = state.items.find(
-        (item: CartItem) => item.id === item.id,
+        (item: CartItem) => item.id === newItem.id,
       );
+      const amountToAdd = newItem.count > 0 ? newItem.count : 1;
 
       if (existingItem) {
         //이미 상품이 담긴 상태일때 수량 +1
         return {
           items: state.items.map((item: CartItem) =>
             item.id === existingItem.id
-              ? { ...item, count: item.count + 1 }
+              ? { ...item, count: item.count + amountToAdd }
               : item,
           ),
         };
       } else {
         //처음 선택했을때 기본 수량 1
         return {
-          items: [...state.items, { ...item, count: 1 }],
+          items: [...state.items, { ...newItem, count: amountToAdd }],
         };
       }
     }),

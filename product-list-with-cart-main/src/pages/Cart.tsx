@@ -1,7 +1,5 @@
 
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-//import { remove } from '../sotre/index';
 
 import { OrderModal } from "./OrderModal";
 
@@ -20,17 +18,14 @@ interface cartItem {
 }
 
 export const Cart = () => {
-
-
-    const cart = useSelector((state: any) => state.cartReducer.items);
-    const { remove } = useCartStore();
-    const dispatch = useDispatch();
+    const cart = useCartStore((state) => state.items);
+    const remove = useCartStore((state) => state.remove);
     let total = 0;
 
     const [isOpen, setIsOpen] = useState(false);
 
     const removeCart = (item: cartItem) => {
-        dispatch(remove(item));//카트에서 해당 상품 삭제
+        remove(item.id);//카트에서 해당 상품 삭제
     }
 
     const closeModal = () => {
